@@ -53,3 +53,8 @@ jobs:
             - name: Functional Non-Snapshot Tests
               run: |
                   npm run test:func:nosnaps
+
+            - name: Performance Benchmark
+              if: "!startsWith(github.event.head_commit.message, 'WIP')"
+              run: |
+                  npm run build:analyze
