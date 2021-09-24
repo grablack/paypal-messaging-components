@@ -77,6 +77,7 @@ jobs:
               useLockFile: false
 
         - name: Audit URLs using Lighthouse
+          id: LHCIAction
           uses: treosh/lighthouse-ci-action@v8
           env: 
             SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
