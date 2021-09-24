@@ -90,4 +90,4 @@ jobs:
         - name: Test Manifest Var
           env:
             TEST_VAR: ${{steps.LHCIAction.outputs.manifest}}
-          run: node tools/performance/manifest.js
+          runs: node tools/performance/manifest.js
