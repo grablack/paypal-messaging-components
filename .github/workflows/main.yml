@@ -67,9 +67,9 @@ jobs:
         - name: Audit URLs using Lighthouse
           uses: treosh/lighthouse-ci-action@v8
           with:
+            super_secret: ${{ secrets.LIGHTHOUSE_HOME }}
             urls: |
-              ${{ secrets.LIGHTHOUSE_HOME }}/?stage_tag=julia_test_2021
-              ${{ secrets.LIGHTHOUSE_HOME }}/category/jewelry?stage_tag=julia_test_2021
-            budgetPath: ./benchmark.json # test performance budgets
+              "$SUPER_SECRET"/?stage_tag=julia_test_2021
+              "$SUPER_SECRET"/category/jewelry?stage_tag=julia_test_2021
             uploadArtifacts: true # save results as an action artifacts
             temporaryPublicStorage: true # upload lighthouse report to the temporary storage
