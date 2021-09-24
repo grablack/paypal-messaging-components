@@ -88,6 +88,4 @@ jobs:
             temporaryPublicStorage: true # upload lighthouse report to the temporary storage
 
         - name: Test Manifest Var
-          env:
-            TEST_VAR: ${{steps.LHCIAction.outputs.manifest}}
-          run: node tools/performance/manifest.js
+          run: TEST_VAR=${{steps.LHCIAction.outputs.manifest}} node tools/performance/manifest.js
