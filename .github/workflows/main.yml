@@ -71,7 +71,6 @@ jobs:
             SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
           with:
             urls: |
-              $SUPER_SECRET/?stage_tag=julia_test_2021
-              $SUPER_SECRET/category/jewelry?stage_tag=julia_test_2021
+              http://lighthouse-ecommerce.herokuapp.com/
             uploadArtifacts: true # save results as an action artifacts
             temporaryPublicStorage: true # upload lighthouse report to the temporary storage
