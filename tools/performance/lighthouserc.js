@@ -14,7 +14,7 @@ module.exports = {
                 `http://lighthouse-ecommerce.herokuapp.com/checkout?stage_tag=${process.env.ARG}`
             ],
             settings: {
-                preset: 'mobile',
+                preset: 'desktop',
                 output: 'json',
                 maxWaitForLoad: 10000,
                 chromeFlags: '--no-sandbox --disable-storage-reset --disable-dev-shm-usage --in-process-gpu'
