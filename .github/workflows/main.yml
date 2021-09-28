@@ -76,8 +76,8 @@ jobs:
           with:
               useLockFile: false
 
-        - name: Audit URLs using Lighthouse
-          id: LHCIAction
+        - name: Desktop Audit URLs using Lighthouse
+          id: LHCIActionDesktop
           uses: treosh/lighthouse-ci-action@v8
           env: 
             SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
@@ -85,9 +85,22 @@ jobs:
             urls: |
               http://lighthouse-ecommerce.herokuapp.com/
             runs: 4
-            configPath: tools/performance/lighthouserc.js
+            configPath: tools/performance/lighthouserc-desktop.js
+            uploadArtifacts: true # save results as an action artifacts
+            temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+
+        - name: Mobile Audit URLs using Lighthouse
+          id: LHCIActionMobile
+          uses: treosh/lighthouse-ci-action@v8
+          env: 
+            SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
+          with:
+            urls: |
+              http://lighthouse-ecommerce.herokuapp.com/
+            runs: 4
+            configPath: tools/performance/lighthouserc-mobile.js
             uploadArtifacts: true # save results as an action artifacts
             temporaryPublicStorage: true # upload lighthouse report to the temporary storage
 
         - name: Test Manifest Var
-          run: TEST_VAR=${{steps.LHCIAction.outputs.manifest}} node tools/performance/manifest.js
+          run: TEST_DESKTOP=${{steps.LHCIActionDesktop.outputs.manifest}} TEST_MOBILE=${{steps.LHCIActionMobile.outputs.manifest}} node tools/performance/manifest.js

@@ -18,7 +18,8 @@ module.exports = {
                 output: 'json',
                 maxWaitForLoad: 10000,
                 chromeFlags: '--no-sandbox --disable-storage-reset --disable-dev-shm-usage --in-process-gpu'
-            }
+            },
+            psiStrategy: 'desktop'
         },
         upload: {
             target: 'temporary-public-storage'
