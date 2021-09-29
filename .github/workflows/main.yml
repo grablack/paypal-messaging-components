@@ -82,8 +82,6 @@ jobs:
           env: 
             SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
           with:
-            urls: |
-              http://lighthouse-ecommerce.herokuapp.com/
             runs: 4
             configPath: tools/performance/lighthouserc-desktop.js
             uploadArtifacts: true # save results as an action artifacts
@@ -95,12 +93,12 @@ jobs:
           env: 
             SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
           with:
-            urls: |
-              http://lighthouse-ecommerce.herokuapp.com/
             runs: 4
             configPath: tools/performance/lighthouserc-mobile.js
             uploadArtifacts: true # save results as an action artifacts
             temporaryPublicStorage: true # upload lighthouse report to the temporary storage
 
         - name: Test Manifest Var
+          env:
+            SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
           run: TEST_DESKTOP=${{steps.LHCIActionDesktop.outputs.manifest}} TEST_MOBILE=${{steps.LHCIActionMobile.outputs.manifest}} node tools/performance/manifest.js
