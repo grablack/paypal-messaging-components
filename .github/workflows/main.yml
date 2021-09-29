@@ -88,6 +88,7 @@ jobs:
             temporaryPublicStorage: true # upload lighthouse report to the temporary storage
 
         - name: Mobile Audit URLs using Lighthouse
+          if: "startsWith(github.event.head_commit.message, 'WIP')"
           id: LHCIActionMobile
           uses: treosh/lighthouse-ci-action@v8
           env: 

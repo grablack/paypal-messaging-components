@@ -24,11 +24,11 @@ module.exports = {
         collect: {
             numberOfRuns: 3,
             url: [
-                `http://lighthouse-ecommerce.herokuapp.com/?stage_tag=${process.env.ARG}`,
-                `http://lighthouse-ecommerce.herokuapp.com/category/jewelry?stage_tag=${process.env.ARG}`,
-                `http://lighthouse-ecommerce.herokuapp.com/product/7?stage_tag=${process.env.ARG}`,
-                `http://lighthouse-ecommerce.herokuapp.com/cart?stage_tag=${process.env.ARG}`,
-                `http://lighthouse-ecommerce.herokuapp.com/checkout?stage_tag=${process.env.ARG}`
+                `${process.env.SUPER_SECRET}/?stage_tag=${process.env.ARG}`,
+                `${process.env.SUPER_SECRET}/category/jewelry?stage_tag=${process.env.ARG}`,
+                `${process.env.SUPER_SECRET}/product/7?stage_tag=${process.env.ARG}`,
+                `${process.env.SUPER_SECRET}/cart?stage_tag=${process.env.ARG}`,
+                `${process.env.SUPER_SECRET}/checkout?stage_tag=${process.env.ARG}`
             ],
             settings: {
                 formFactor: 'desktop',

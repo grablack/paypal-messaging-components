@@ -25,8 +25,6 @@ const mobileRegular3G = {
     cpuSlowdownMultiplier: 4
 };
 
-console.log(process.env);
-
 module.exports = {
     ci: {
         collect: {
