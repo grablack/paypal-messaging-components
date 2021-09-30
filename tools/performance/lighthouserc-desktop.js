@@ -22,14 +22,6 @@ const desktopDense4G = {
 module.exports = {
     ci: {
         collect: {
-            numberOfRuns: 3,
-            url: [
-                `${process.env.SUPER_SECRET}/?stage_tag=${process.env.ARG}`,
-                `${process.env.SUPER_SECRET}/category/jewelry?stage_tag=${process.env.ARG}`,
-                `${process.env.SUPER_SECRET}/product/7?stage_tag=${process.env.ARG}`,
-                `${process.env.SUPER_SECRET}/cart?stage_tag=${process.env.ARG}`,
-                `${process.env.SUPER_SECRET}/checkout?stage_tag=${process.env.ARG}`
-            ],
             settings: {
                 formFactor: 'desktop',
                 throttling: desktopDense4G,

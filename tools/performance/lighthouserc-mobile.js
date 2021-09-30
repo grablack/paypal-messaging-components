@@ -28,14 +28,6 @@ const mobileRegular3G = {
 module.exports = {
     ci: {
         collect: {
-            numberOfRuns: 3,
-            url: [
-                `http://lighthouse-ecommerce.herokuapp.com/?stage_tag=${process.env.ARG}`,
-                `http://lighthouse-ecommerce.herokuapp.com/category/jewelry?stage_tag=${process.env.ARG}`,
-                `http://lighthouse-ecommerce.herokuapp.com/product/7?stage_tag=${process.env.ARG}`,
-                `http://lighthouse-ecommerce.herokuapp.com/cart?stage_tag=${process.env.ARG}`,
-                `http://lighthouse-ecommerce.herokuapp.com/checkout?stage_tag=${process.env.ARG}`
-            ],
             settings: {
                 formFactor: 'mobile',
                 throttling: mobileRegular3G,

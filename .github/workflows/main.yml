@@ -81,7 +81,14 @@ jobs:
           uses: treosh/lighthouse-ci-action@v8
           env: 
             SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
+            LIGHTHOUSE_HOME: ${{ secrets.LIGHTHOUSE_HOME }}
           with:
+            urls: |
+              $LIGHTHOUSE_HOME/?stage_tag=${process.env.ARG}
+              $LIGHTHOUSE_HOME/category/jewelry?stage_tag=${process.env.ARG}
+              $LIGHTHOUSE_HOME/product/7?stage_tag=${process.env.ARG}
+              $LIGHTHOUSE_HOME/cart?stage_tag=${process.env.ARG}
+              $LIGHTHOUSE_HOME/checkout?stage_tag=${process.env.ARG}
             runs: 4
             configPath: tools/performance/lighthouserc-desktop.js
             uploadArtifacts: true # save results as an action artifacts
@@ -93,7 +100,14 @@ jobs:
           uses: treosh/lighthouse-ci-action@v8
           env: 
             SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
+            LIGHTHOUSE_HOME: ${{ secrets.LIGHTHOUSE_HOME }}
           with:
+            urls: |
+              $LIGHTHOUSE_HOME/?stage_tag=${process.env.ARG}
+              $LIGHTHOUSE_HOME/category/jewelry?stage_tag=${process.env.ARG}
+              $LIGHTHOUSE_HOME/product/7?stage_tag=${process.env.ARG}
+              $LIGHTHOUSE_HOME/cart?stage_tag=${process.env.ARG}
+              $LIGHTHOUSE_HOME/checkout?stage_tag=${process.env.ARG}
             runs: 4
             configPath: tools/performance/lighthouserc-mobile.js
             uploadArtifacts: true # save results as an action artifacts
@@ -102,4 +116,5 @@ jobs:
         - name: Test Manifest Var
           env:
             SUPER_SECRET: ${{ secrets.LIGHTHOUSE_HOME }}
+            LIGHTHOUSE_HOME: ${{ secrets.LIGHTHOUSE_HOME }}
           run: TEST_DESKTOP=${{steps.LHCIActionDesktop.outputs.manifest}} TEST_MOBILE=${{steps.LHCIActionMobile.outputs.manifest}} node tools/performance/manifest.js
