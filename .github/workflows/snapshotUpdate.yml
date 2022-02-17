@@ -2,8 +2,12 @@ name: Update Snapshots
 on:
     # allow for manual triggers
     workflow_dispatch: {}
-    pull_request:
-        types: [labeled]
+    workflow_call: {}
+    push:
+        branches:
+            - develop
+            - github-tester
+    pull_request: {}
 
 jobs:
     getMatrix:
