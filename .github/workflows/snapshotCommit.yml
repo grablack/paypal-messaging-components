@@ -1,10 +1,13 @@
 name: Commit Snapshots
 
 on:
-    workflow_run:
-        workflows: ['Update Snapshots']
-        types:
-            - completed
+    workflow_dispatch: {}
+    workflow_call: {}
+    push:
+        branches:
+            - develop
+            - github-tester
+    pull_request: {}
 
 jobs:
     commit:
@@ -45,6 +48,8 @@ jobs:
 
                           if (artifact.name === 'metadata') {
                             execSync(`unzip -o ${{ github.workspace }}/${artifact.name}.zip`);
+                          } else if (artifact.name.includes('v2')) {
+                            execSync(`unzip -o ${{ github.workspace }}/${artifact.name}.zip -d tests/functional/v2/snapshots`);
                           } else {
                             execSync(`unzip -o ${{ github.workspace }}/${artifact.name}.zip -d tests/functional/snapshots`);
                           }
