@@ -103,9 +103,9 @@ pipeline {
                     <br />
                     Version ${env.VERSION} assets have been bundled and are ready for review.<br />
                     Please approve and deploy: <br />
-                    1. Stage: ${BUNDLE_URL}${stageBundleId} <br />
-                    2. Sandbox: ${BUNDLE_URL}${sandboxBundleId} <br />
-                    3. Production: ${BUNDLE_URL}${productionBundleId} <br />
+                    1. Stage: ${BUNDLE_URL}${env.stageBundleId} <br />
+                    2. Sandbox: ${BUNDLE_URL}${env.sandboxBundleId} <br />
+                    3. Production: ${BUNDLE_URL}${env.productionBundleId} <br />
                     <br />
                     Regards,<br />
                     Your friendly neighborhood digital butler
